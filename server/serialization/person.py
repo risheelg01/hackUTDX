@@ -6,6 +6,7 @@ class Person(BaseModel):
     creditCardPayments: float
     carPayments: float
     studentLoanPayments: float
+    appraisedValue: float
     downPaymentOnHouse: float
     loanAmount: float
     monthlyMortgagePayment: float

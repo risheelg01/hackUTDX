@@ -6,12 +6,14 @@ from fastapi_sqlalchemy import DBSessionMiddleware
 from dotenv import load_dotenv
 
 from handlers.user import router as user_router
+from handlers.game import router as game_router
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 app = FastAPI()
 app.include_router(user_router, tags=["User"])
+app.include_router(game_router, tags=["Game"])
 app.add_middleware(DBSessionMiddleware, db_url=os.environ["DATABASE_URL"])
 
 origins = [
